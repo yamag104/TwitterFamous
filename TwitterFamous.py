@@ -19,17 +19,24 @@ class TwitterFamous:
         random.seed()
 
     def setup(self):
-        self.connection = Twitter(auth=OAuth("2257085569-AcqPChcHvIXDpSCnZFsoPx9QFKarj08wxDPR3Nl",
-                                                     "hPvAgF7Lo2KWjBLZzdFZI7uF1H8WDORUdXHzOwQzbQUiL",
-                                                     "TGMsKkUheVYhcjF4A3P0Ljlca",
-                                                     "YsM8FCFaRXI4heh4dMj3eJU7WGWuYwlmWIgQGByWocnOiZlK5y"))
+        with open("config.txt", "r") as infile:
+            for line in infile:
+                line = line.split(":")
+                parameter = line[0].strip()
+                value = line[1].strip()
+                self.config[parameter] = value
+
+        self.connection = Twitter(auth=OAuth(self.config["OAUTH_TOKEN"],
+                                                     self.config["OAUTH_SECRET"],
+                                                     self.config["CONSUMER_KEY"],
+                                                     self.config["CONSUMER_SECRET"]))
         print("Your Authenticated.")
         print(self.connection)
 
-    def search_tweets(self, word, count=10, result_type="recent"):
+    def search_tweets(self, word, count, result_type="recent"):
         return self.connection.search.tweets(q=word, result_type=result_type, count=count)
 
-    def favorite_tweets(self, word, count=10, result_type="recent" ):
+    def favorite_tweets(self, word, count, result_type="recent" ):
         result = self.search_tweets(word, count, result_type)
         for tweet in result["statuses"]:
             try:
@@ -38,3 +45,21 @@ class TwitterFamous:
             except TwitterHTTPError as api_error:
                 print("ERROR")
 
+    def retweet(self, word, count, result_type="recent"):
+        result = self.search_tweets(word, count, result_type)
+        for tweet in result["statuses"]:
+            try:
+                result = self.connection.statuses.retweet(id=tweet["id"])
+                print("Retweeted: %s" % (result["text"].encode("utf-8")), file=sys.stdout)
+            except TwitterHTTPError as api_error:
+                print("ERROR")
+
+    def follow(self, word, count, result_type="recent"):
+        result = self.search_tweets(word, count, result_type)
+        for tweet in result["statuses"]:
+            try:
+                    self.connection.friendships.create(user_id=tweet["user"]["id"], follow=False)
+                    print("Followed %s" %
+                          (tweet["user"]["screen_name"]), file=sys.stdout)
+            except TwitterHTTPError as api_error:
+                print("ERROR")
