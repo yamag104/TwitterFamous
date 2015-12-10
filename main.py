@@ -19,6 +19,7 @@ print("1. Favorite Random Tweets")
 print("2. Retweet Random Tweets")
 print("3. Follow Random People")
 print("4. Follow people near you")
+print("5. Determine the tweet rate for any term/phrase")
 menu = input("Choose: ")
 if menu == 1:
     keyword = raw_input("Pick a keyword:")
@@ -38,3 +39,5 @@ if menu == 4:
 		location = geolocator.geocode(address)
 		print("Your current location is :" + str(location.latitude) + str(location.longitude))
 		tf.geo_search(location.latitude, location.longitude)
+if menu == 5:
+    tf.tweet_rate()

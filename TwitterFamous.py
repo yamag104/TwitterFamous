@@ -10,6 +10,9 @@ from __future__ import print_function
 from twitter import Twitter, OAuth, TwitterHTTPError
 import sys
 import random
+from datetime import datetime
+
+created_at_format = '%a %b %d %H:%M:%S +0000 %Y'
 
 
 class TwitterFamous:
@@ -80,11 +83,12 @@ class TwitterFamous:
 			print ("ERROR")
 
 	def tweet_rate(self):
-		terms = "pink elephants"
+		terms = raw_input("Please enter a term:")
 		query = self.connection.search.tweets(q = terms)
 		results = query["statuses"]
-		# first_timestamp = datetime.strptime(results[0]["created_at"], created_at_format)
-		# last_timestamp = datetime.strptime(results[-1]["created_at"], created_at_format)
-		# total_dt = (first_timestamp - last_timestamp).total_seconds()
-		# mean_dt = total_dt / len(results)
-		# print "Average tweeting rate for '%s' between %s and %s: %.3fs" % (terms, results[-1]["created_at"], results[0]["created_at"], mean_dt)
+		first_timestamp = datetime.strptime(results[0]["created_at"], created_at_format)
+		last_timestamp = datetime.strptime(results[-1]["created_at"], created_at_format)
+		total_dt = (first_timestamp - last_timestamp).total_seconds()
+		mean_dt = total_dt / len(results)
+		print("Average tweeting rate for '%s' between %s and %s: %.3fs" % (terms, results[-1]["created_at"], results[0]["created_at"], mean_dt))
+
