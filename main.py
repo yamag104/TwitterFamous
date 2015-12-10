@@ -20,6 +20,8 @@ print("2. Retweet Random Tweets")
 print("3. Follow Random People")
 print("4. Follow people near you")
 print("5. Determine the tweet rate for any term/phrase")
+print("6. Print last 50 items on Twitter newsfeed")
+print("7. Post a tweet")
 menu = input("Choose: ")
 if menu == 1:
     keyword = raw_input("Pick a keyword:")
@@ -41,3 +43,8 @@ if menu == 4:
 		tf.geo_search(location.latitude, location.longitude)
 if menu == 5:
     tf.tweet_rate()
+if menu == 6:
+	tf.print_newsfeed()
+if menu == 7:
+	new_status = raw_input("Enter a status to post: ")
+	tf.post_status(new_status)
