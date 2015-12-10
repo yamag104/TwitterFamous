@@ -78,3 +78,10 @@ class TwitterFamous:
 												print("ERROR")
 				except Exception:
 						print ("ERROR")
+					
+		def post_status(self, status):
+			try: 
+				result = twitter.statuses.update(status = new_status)
+				print "New status: %s" % new_status
+			except TwitterHTTPError as api_error:
+				print("ERROR")
