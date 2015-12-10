@@ -106,10 +106,3 @@ class TwitterFamous:
 				print( "(%s) @%s %s" % (status["created_at"], status["user"]["screen_name"], status["text"]))
 		except TwitterHTTPError as api_error:
 			print("ERROR")
-			
-	def print_followers(self, username):
-		query = self.connection.friends.ids(screen_name = username)
-		print "found %d friends" % (len(query["ids"]))
-		subquery = self.connection.users.lookup(user_id = ids)
-		for user in subquery:
-			print " [%s] %s" % ("*" if user["verified"] else " ", user["screen_name"])
