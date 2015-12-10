@@ -85,3 +85,11 @@ class TwitterFamous:
 				print "New status: %s" % new_status
 			except TwitterHTTPError as api_error:
 				print("ERROR")
+
+		def print_newsfeed(self):
+			try:
+				statuses = twitter.statuses.home_timeline(count = 50)
+				for status in statuses:
+					print "(%s) @%s %s" % (status["created_at"], status["user"]["screen_name"], status["text"])
+			except TwitterHTTPError as api_error:
+				print("ERROR")
