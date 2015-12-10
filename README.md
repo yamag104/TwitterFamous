@@ -9,6 +9,9 @@ There are multiple ways to get twitter famous....
 *  Follow Random People
 *  Follow people near you
 *  Favorite tweets near you
+*  Calculate rate of tweets
+*  Print out the last 50 tweets on your newsfeed
+*  Post a tweet
 
 # Installation
 `git clone https://github.com/yamag104/TwitterFamous.git`
