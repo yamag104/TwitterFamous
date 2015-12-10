@@ -1,10 +1,14 @@
 # TwitterFamous
-Twitter client that makes you Twitter Famous!
+Twitter client that makes you **Twitter Famous**!
+
 There are multiple ways to get twitter famous....
-1. Favorite Random Tweets
-2. Retweet Random Tweets
-3. Follow Random People
-4. Follow people near you
+
+
+*  Favorite Random Tweets
+*  Retweet Random Tweets
+*  Follow Random People
+*  Follow people near you
+*  Favorite tweets near you
 
 # Installation
 `git clone https://github.com/yamag104/TwitterFamous.git`
