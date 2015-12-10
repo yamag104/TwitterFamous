@@ -26,6 +26,7 @@ Version 2 comes with the geolocation feature where it helps you make twitter fam
 - Follow people near you
 - Favorite tweets near you
 - separated config.txt file containing twitter developer tokens
+- determine a twitter tweet rate
 
 ### ver 1.0 - Original Deliverables
 - Favorite Random Tweets
