@@ -82,7 +82,7 @@ class TwitterFamous:
 		def post_status(self, status):
 			try: 
 				result = twitter.statuses.update(status = new_status)
-				print "New status: %s" % new_status
+				print ("New status: %s" % new_status)
 			except TwitterHTTPError as api_error:
 				print("ERROR")
 
@@ -90,6 +90,6 @@ class TwitterFamous:
 			try:
 				statuses = twitter.statuses.home_timeline(count = 50)
 				for status in statuses:
-					print "(%s) @%s %s" % (status["created_at"], status["user"]["screen_name"], status["text"])
+					print ("(%s) @%s %s" % (status["created_at"], status["user"]["screen_name"], status["text"]))
 			except TwitterHTTPError as api_error:
 				print("ERROR")
