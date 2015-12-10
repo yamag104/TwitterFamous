@@ -22,7 +22,7 @@ If you don't already have it:
 `pip install geopy`
 
 # ver 2.0 - What's new
-Version 2 comes with the geolocation feature where it helps you make twitter famous not only globally but LOCALLY! (IMPORTANT) Separated config file lets anyone who uses this application to easily edit their account info so that they don't need to look at the source code!
+Version 2 comes with the geolocation feature where it helps you make twitter famous not only globally but LOCALLY! (being famous locally is *IMPORTANT*) Separated config file lets anyone who uses this application to easily edit their account info so that they don't need to look at the source code!
 - Follow people near you
 - Favorite tweets near you
 - separated config.txt file containing twitter developer tokens
