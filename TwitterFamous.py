@@ -1,7 +1,7 @@
 """
 Copyright 2015
 
-@author Yoko Yamaguchi, Nicholas Vega, Conner McCarl, Adrienne Bergh
+@author Yoko Yamaguchi, Nicholas Vega, Connor McCarl, Adrienne Bergh
 
 Twitter Famous
 
