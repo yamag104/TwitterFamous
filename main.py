@@ -22,7 +22,6 @@ print("4. Follow people near you")
 print("5. Determine the tweet rate for any term/phrase")
 print("6. Print last 50 items on Twitter newsfeed")
 print("7. Post a tweet")
-print("8. Print out all Followers")
 menu = input("Choose: ")
 if menu == 1:
     keyword = raw_input("Pick a keyword:")
@@ -49,6 +48,3 @@ if menu == 6:
 if menu == 7:
 	new_status = raw_input("Enter a status to post: ")
 	tf.post_status(new_status)
-if menu == 8:
-	keyword = raw_input("Pick a username:")
-	tf.print_followers(keyword)
